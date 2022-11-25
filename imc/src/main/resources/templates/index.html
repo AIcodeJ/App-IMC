@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
+-->
+<html>
+    <head>
+        <title>Consultas</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <div align="center">
+            <p th:text="${session.mySessionAttribute}" th:unless="${session == null}">[...]</p>
+            <h1>Bienvenido</h1>
+            <p>Este es el acceso a nuestra base de datos de IMC</p>
+            <a href="new">Nuevo registro</a>
+            <br/><br/>
+            <table border="1" cellpadding="10">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nombre</th>
+                        <th>Apellido</th>
+                        <th>Sexo</th>
+                        <th>Peso</th>
+                        <th>Altura</th>
+                        <th>Edad</th>
+                        <th>IMC</th>
+                        <th>Estatus</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="data : ${listData}">
+                        <td th:text="${data.id}">ID</td>
+                        <td th:text="${data.nombre}">Nombre</td>
+                        <td th:text="${data.apellido}">Apellido</td>
+                        <td th:text="${data.sexo}">Sexo</td>
+                        <td th:text="${data.peso}">Peso</td>
+                        <td th:text="${data.altura}">Altura</td>
+                        <td th:text="${data.edad}">Edad</td>
+                        <td th:text="${data.imc}">IMC</td>
+                        <td th:text="${data.estatus}">Estatus</td>
+                        <td>
+                            <a th:href="@{'/edit/' + ${data.id}}">Edit</a>
+                            &nbsp;&nbsp;&nbsp;
+                            <a th:href="@{'/delete/' + ${data.id}}">Delete</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </body>
+</html>

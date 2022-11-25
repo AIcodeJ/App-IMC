@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <div align="center">
+            <h1>Por favor, ingresa tu usuario y contraseña</h1>
+            <br/>
+                <form action="#" th:action="@{/login}" th:object="${formulario}" 
+                      method="post">
+                    <table border="0" cellpading="10">
+                        <tr>
+                            <td>Usuario:</td>
+                            <td><input type="text" th:field="*{nombre}" /></td>
+                        </tr>
+                        <tr>
+                            <td>Password:</td>
+                            <td><input type="password" th:field="*{password}" /></td>
+                        </tr>
+                        <tr>
+                            <td colspan="2"><button type="submit">Login</button> </td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+    </body>
+</html>
